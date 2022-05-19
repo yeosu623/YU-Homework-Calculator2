@@ -56,6 +56,8 @@ template <typename T>
 class Rem : public OP<T> {
 public:
 	void calculate() {
-		this->result = this->a % this->b;
+		// °ø½Ä :: a/b = ¸ò + ³ª¸ÓÁö / b
+		// ---> ³ª¸ÓÁö = a - b * ¸ò
+		this->result = this->a - this->b * (int(this->a / this->b));
 	}
 };
